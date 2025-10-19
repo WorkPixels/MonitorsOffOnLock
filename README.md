@@ -3,12 +3,15 @@ This script will force your monitors to go into standby when you lock your PC.
 
 ### Prerequisites
 
-1.  **Script Location:** Your working PowerShell script (with the `exit` command) is saved at: `C:\Users\WorkPixels\OneDrive\Documents\Scripts\MonitorOffOnLock.ps1`.
+1.  **Script Location:** Your working PowerShell script is saved at: `C:\Users\WorkPixels\OneDrive\Documents\Scripts\MonitorOffOnLock.ps1`.
 2.  **User Context:** You will configure the task to run as your user account to guarantee the lock event is detected.
 
 -----
-Script:
+# Script
+Save the script to this location or update the location in your task.
+"C:\Users\WorkPixels\OneDrive\Documents\Scripts\MonitorOffOnLock.ps1"
 
+```
 # ==============================================================================
 # Monitor-Off Script (Used with Workstation Lock Trigger)
 # ==============================================================================
@@ -25,7 +28,7 @@ public class Monitor {
 
 # Forces the PowerShell process to terminate immediately, eliminating the window flash.
 exit
-
+```
 -----
 
 ## Step-by-Step Task Scheduler Setup
@@ -57,7 +60,7 @@ This is the key step to ensure the script runs exactly when the PC is locked.
 
 1.  Go to the **Triggers** tab and click **New...**.
 2.  From the **"Begin the task"** dropdown, select **"On workstation lock"**.
-3.  Ensure **"Specific user"** is selected and set to **Your Username** (`WorkPixels`).
+3.  Ensure **"Any user"** is selected.
 4.  Click **OK**.
 
 <img width="632" height="480" alt="image" src="https://github.com/user-attachments/assets/7473400b-bc65-4668-af3b-1e5807e46679" />
