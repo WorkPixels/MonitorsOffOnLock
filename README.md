@@ -7,6 +7,26 @@ This script will force your monitors to go into standby when you lock your PC.
 2.  **User Context:** You will configure the task to run as your user account to guarantee the lock event is detected.
 
 -----
+Script:
+
+# ==============================================================================
+# Monitor-Off Script (Used with Workstation Lock Trigger)
+# ==============================================================================
+
+Add-Type -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+public class Monitor {
+    [DllImport("user32.dll")]
+    public static extern int SendMessage(int hWnd, int hMsg, int wParam, int lParam);
+}
+'@
+[Monitor]::SendMessage(-1, 0x0112, 0xF170, 2)
+
+# Forces the PowerShell process to terminate immediately, eliminating the window flash.
+exit
+
+-----
 
 ## Step-by-Step Task Scheduler Setup
 
